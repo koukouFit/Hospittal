@@ -1,0 +1,121 @@
+{
+  "id": "1839106",
+  "name": "hospital",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "693138",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "724367",
+      "name": "通讯录",
+      "font_class": "addressbook2-copy",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "1221567",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "2078817",
+      "name": "dkw_消息 ",
+      "font_class": "dkw_xiaoxi",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "2261660",
+      "name": "消息",
+      "font_class": "message",
+      "unicode": "e81d",
+      "unicode_decimal": 59421
+    },
+    {
+      "icon_id": "5121652",
+      "name": "消息",
+      "font_class": "xiaoxi-",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "5944365",
+      "name": "功能",
+      "font_class": "gongneng",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "8103423",
+      "name": "功能",
+      "font_class": "danseshixintubiao-",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "8288841",
+      "name": "功能",
+      "font_class": "gongneng1",
+      "unicode": "e84a",
+      "unicode_decimal": 59466
+    },
+    {
+      "icon_id": "8348146",
+      "name": "通讯录",
+      "font_class": "tongxunlu",
+      "unicode": "e720",
+      "unicode_decimal": 59168
+    },
+    {
+      "icon_id": "8821262",
+      "name": "功能-01",
+      "font_class": "gongneng-",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "14175975",
+      "name": "设置",
+      "font_class": "zhengzhouyinhangAPPtubiaodiergaolunkuohuachunse-21",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "141897",
+      "name": "people",
+      "font_class": "people",
+      "unicode": "e825",
+      "unicode_decimal": 59429
+    },
+    {
+      "icon_id": "7605154",
+      "name": "people",
+      "font_class": "people1",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "12546484",
+      "name": "star",
+      "font_class": "star",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "12966498",
+      "name": "star",
+      "font_class": "star1",
+      "unicode": "e792",
+      "unicode_decimal": 59282
+    }
+  ]
+}

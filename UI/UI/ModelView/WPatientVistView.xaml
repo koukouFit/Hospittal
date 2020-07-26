@@ -1,0 +1,227 @@
+﻿<Window x:Class="UI.ModelView.WPatientVistView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.ModelView"
+        mc:Ignorable="d"
+        DataContext="{Binding Source={StaticResource Locator},Path=PatientVistList}"
+        Title="WPatientVistView" Height="700" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" ItemsSource="{Binding PatientVisitList}" Name="patientListbox">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template" >
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem" >
+                                <Grid x:Name="totalarea" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width ="260"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <ContentPresenter VerticalAlignment="Center" Margin="0,0,0,0" Grid.ColumnSpan="2" Grid.Column="0"></ContentPresenter>
+                                    <Border Grid.Column="1" x:Name="delborder" Background="{TemplateBinding Background}" 
+                                             Panel.ZIndex="1" CornerRadius="20" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="2" BorderBrush="Black">  <!--为了隐藏时间-->
+                                        <Button Content="&#xe67e;" FontFamily="/icon/#iconfont" VerticalAlignment="Center"  Name="delbutton"
+                                               HorizontalAlignment="Center" FontSize="20" Click="delbutton_Click"  ></Button>
+                                    </Border>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#F5F6FA" TargetName="totalarea"></Setter>
+                                        <!--<Setter Property="Visibility" Value="Hidden" TargetName="delborder"></Setter>-->
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" TargetName="delborder"></Setter>
+                                        <Setter Property="Background" Value="#F5F6FA" TargetName="totalarea"></Setter>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="False">
+                                        <Setter Property="Visibility" Value="Hidden" TargetName="delborder"></Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                            
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding PatientInfo.ImagePath}" Stretch="Fill" Height="30" Width="30" Grid.Column="0">
+                            <Image.Clip>
+                                <EllipseGeometry RadiusX="15" RadiusY="15" Center="15,15"/>
+                            </Image.Clip>
+                        </Image>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding PatientInfo.Name}" FontFamily="宋体" FontSize="18"  Foreground="#2F2F2F" Margin="5 5 0 0 " FontWeight="Thin"></TextBlock>
+                            <TextBlock Text="{Binding RecordCount}" FontFamily="宋体" FontSize="15" Margin="5 0 0 5 " Foreground="#B2B3B3"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="{Binding ListVistTime}" FontFamily="宋体" FontSize="15"  Foreground="#B2B3B3" Margin="5 5 0 0 " FontWeight="Thin"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid Grid.Column="1" DataContext="{Binding ElementName=patientListbox, Path=SelectedItem}">  <!--关联选中的项-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#F3F3F3" ShowGridLines="True" >   <!--标题栏-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="40"></ColumnDefinition>
+                    <ColumnDefinition Width="40"></ColumnDefinition>
+                    <ColumnDefinition Width="40"></ColumnDefinition>
+                    <ColumnDefinition Width="40"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding PatientInfo.ImagePath}" Stretch="Fill" Height="30" Width="30" Grid.Column="0">
+                    <Image.Clip>
+                        <EllipseGeometry RadiusX="15" RadiusY="15" Center="15,15"/>
+                    </Image.Clip>
+                </Image>
+                <TextBlock Grid.Column="1" Text="{Binding PatientInfo.Name}" FontFamily="宋体" FontSize="18"  Foreground="#2F2F2F" Margin="5 5 0 0 " FontWeight="Thin"></TextBlock>
+                <Image Name="Imageadd" Grid.Column="2">
+                    <Image.Source>
+                        <MultiBinding Converter="{StaticResource MessagePicConvert_Add}">
+                            <Binding ElementName="Imageadd" Path="IsMouseOver" ></Binding>
+                            <Binding ElementName="Imageadd" Path="Name"></Binding>
+                        </MultiBinding>
+                    </Image.Source>
+                </Image>
+                <Image Name="ImageBack" Grid.Column="3" Stretch="None">
+                    <Image.Source>
+                        <MultiBinding Converter="{StaticResource MessagePicConvert_Add}">
+                            <Binding ElementName="ImageBack" Path="IsMouseOver" ></Binding>
+                            <Binding ElementName="ImageBack" Path="Name"></Binding>
+                        </MultiBinding>
+                    </Image.Source>
+                </Image>
+                <Image Name="ImageRefresh" Grid.Column="4" Stretch="Uniform" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Image.Source>
+                        <MultiBinding Converter="{StaticResource MessagePicConvert_Add}">
+                            <Binding ElementName="ImageRefresh" Path="IsMouseOver"  ></Binding>
+                            <Binding ElementName="ImageRefresh" Path="Name"></Binding>
+                        </MultiBinding>
+                    </Image.Source>
+                </Image>
+                <Image Name="ImageSet" Grid.Column="5" >
+                    <Image.Source>
+                        <MultiBinding Converter="{StaticResource MessagePicConvert_Add}">
+                            <Binding ElementName="ImageSet" Path="IsMouseOver"  ></Binding>
+                            <Binding ElementName="ImageSet" Path="Name"></Binding>
+                        </MultiBinding>
+                    </Image.Source>
+                </Image>
+                <!--<TextBlock Grid.Column="2" Text="&#xe67e;" FontFamily="icon/#iconfont" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                <TextBlock Grid.Column="3" Text="&#xe67e;" FontFamily="icon/#iconfont" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                <TextBlock Grid.Column="4" Text="&#xe67e;" FontFamily="icon/#iconfont" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+                <Text--><!--Block Grid.Column="5" Text="&#xe67e;" FontFamily="icon/#iconfont" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>-->
+            </Grid>
+            <ListBox Grid.Row="1" ItemsSource="{Binding PatientRecordList}" Background="#F3F7FE" >
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Template">
+                            <Setter.Value >
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <ContentPresenter VerticalAlignment="Center"></ContentPresenter>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#F3F7FE"></Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <!--<Style.Triggers>   
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#F3F7FE"></Setter>
+                            </Trigger>
+                        </Style.Triggers>-->
+                        <!--写在这里无效-->
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0 0 0 0" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.ColumnSpan="3" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       Text="{Binding Time,StringFormat={}{0:yyyy-MM-dd HH:mm}}"></TextBlock>
+
+                            <Border BorderThickness="1" BorderBrush="#B2B3B3" Grid.Row="1" Grid.Column="1">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="5" Color="#B2B3B3" Opacity="0.2" Direction="280" ShadowDepth="0" />
+                                </Border.Effect>
+                                <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Border BorderThickness="0 0 0 2" BorderBrush="#E2E2E2" Background="White">
+                                    <StackPanel>
+                                        <TextBlock Text ="{Binding MedicalType,Converter={StaticResource MedicineTypeConver}}"></TextBlock>
+                                        <TextBlock Text="{Binding Conclusion, StringFormat=病状: {0}}"></TextBlock>
+                                        <TextBlock Text="{Binding illNessDesc, StringFormat=主诉: {0}}"></TextBlock>
+                                        <TextBlock Text="{Binding EffectDesc, StringFormat=反馈: {0}}"></TextBlock>
+                                    </StackPanel>
+                                </Border>
+                                <Grid Grid.Row="1" Background="White">  <!--阅读详情-->
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="30"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="阅读详情">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Foreground" Value="#1296db"></Setter>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    
+                                    <Image Grid.Column="2">
+                                        <Image.Source>
+                                            <MultiBinding Converter="{StaticResource MessagePicConvert_Add}">
+                                                <Binding ElementName="Imageadd" Path="IsMouseOver" ></Binding>
+                                                <Binding ElementName="Imageadd" Path="Name"></Binding>
+                                            </MultiBinding>
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
+                            </Grid>
+                            </Border>
+                        </Grid>
+                        
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Grid>
+</Window>
