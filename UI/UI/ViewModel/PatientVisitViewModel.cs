@@ -49,11 +49,24 @@ namespace UI.ViewModel
 
             PatientVisitModel patientVisitModel = new PatientVisitModel(patient) {  ListVistTime = DateTime.Now.AddDays(-1), RecordCount = 211};
             patientVisitModel.PatientRecordList.Add(patientRecord);
+            patientVisitModel.PatientRecordList.Add(patientRecord);
+            patientVisitModel.PatientRecordList.Add(patientRecord);
+            patientVisitModel.PatientRecordList.Add(patientRecord);
+            patientVisitModel.PatientRecordList.Add(patientRecord);
+            patientVisitModel.PatientRecordList.Add(patientRecord);
+            patientVisitModel.PatientRecordList.Add(patientRecord);
             patientVisitModel.PatientRecordList.Add(patientRecord1);
             PatientVisitModel patientVisitModel1 = new PatientVisitModel(patient) {  ListVistTime = DateTime.Now.AddDays(-12), RecordCount = 1211};
             patientVisitModel1.PatientRecordList.Add(patientRecord);
             patientVisitModel1.PatientRecordList.Add(patientRecord1);
+            patientVisitModel1.PatientRecordList.Add(patientRecord1);
+            patientVisitModel1.PatientRecordList.Add(patientRecord1);
+            patientVisitModel1.PatientRecordList.Add(patientRecord1);
+            patientVisitModel1.PatientRecordList.Add(patientRecord1);
+            patientVisitModel1.PatientRecordList.Add(patientRecord1);
+            patientVisitModel1.PatientRecordList.Add(patientRecord1);
             PatientVisitList.Add(patientVisitModel);
+            PatientVisitList.Add(patientVisitModel1);
             PatientVisitList.Add(patientVisitModel1);
 
         }

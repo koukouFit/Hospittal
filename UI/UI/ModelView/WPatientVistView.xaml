@@ -131,6 +131,7 @@
                 <TextBlock Grid.Column="4" Text="&#xe67e;" FontFamily="icon/#iconfont" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
                 <Text--><!--Block Grid.Column="5" Text="&#xe67e;" FontFamily="icon/#iconfont" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>-->
             </Grid>
+            <ScrollViewer Grid.Row="1">
             <ListBox Grid.Row="1" ItemsSource="{Binding PatientRecordList}" Background="#F3F7FE" >
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
@@ -222,6 +223,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>
