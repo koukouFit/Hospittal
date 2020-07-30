@@ -26,3 +26,4 @@ E:\github\hospitalSystem\UI\UI\obj\Debug\GeneratedInternalTypeHelper.g.cs
 E:\github\hospitalSystem\UI\UI\obj\Debug\App.baml
 E:\github\hospitalSystem\UI\UI\obj\Debug\ModelView\WPatientVistView.g.cs
 E:\github\hospitalSystem\UI\UI\obj\Debug\ModelView\WPatientVistView.baml
+E:\github\hospitalSystem\UI\UI\obj\Debug\UI.csprojAssemblyReference.cache

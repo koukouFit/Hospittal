@@ -195,7 +195,7 @@
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                         <ColumnDefinition Width="30"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="阅读详情">
+                                    <!--<TextBlock Text="阅读详情">
                                         <TextBlock.Style>
                                             <Style TargetType="TextBlock">
                                                 <Style.Triggers>
@@ -205,9 +205,23 @@
                                                 </Style.Triggers>
                                             </Style>
                                         </TextBlock.Style>
-                                    </TextBlock>
+                                    </TextBlock>-->
+                                    <Button Content="阅读详情" Click="delbutton_Click" BorderThickness="0" 
+                                            Background="{Binding RelativeSource ={RelativeSource Mode=FindAncestor, AncestorLevel= 1,AncestorType=Grid}, Path=Background}"
+                                            VerticalAlignment="Center">
+                                                <Button.Style>
+                                                    <Style TargetType="Button">
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Foreground" Value="#1296db"></Setter>
+                                                                <Setter Property="Background" Value="White"></Setter>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                            </Button>
                                     
-                                    <Image Grid.Column="2">
+                                    <Image Grid.Column="2" >
                                         <Image.Source>
                                             <MultiBinding Converter="{StaticResource MessagePicConvert_Add}">
                                                 <Binding ElementName="Imageadd" Path="IsMouseOver" ></Binding>
