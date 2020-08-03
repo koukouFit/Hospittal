@@ -131,9 +131,9 @@
                 <TextBlock Grid.Column="4" Text="&#xe67e;" FontFamily="icon/#iconfont" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
                 <Text--><!--Block Grid.Column="5" Text="&#xe67e;" FontFamily="icon/#iconfont" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>-->
             </Grid>
-            <ScrollViewer Grid.Row="1">
-            <ListBox Grid.Row="1" ItemsSource="{Binding PatientRecordList}" Background="#F3F7FE" >
-                <ListBox.ItemContainerStyle>
+            <ScrollViewer Grid.Row="1" Visibility="{Binding ListBoxVisible}" Name="scrollviewer1">
+                <ListBox Grid.Row="1" ItemsSource="{Binding PatientRecordList}" Background="#F3F7FE" Name="listbox1">
+                    <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                         <Setter Property="Template">
@@ -206,7 +206,7 @@
                                             </Style>
                                         </TextBlock.Style>
                                     </TextBlock>-->
-                                    <Button Content="阅读详情" Click="delbutton_Click" BorderThickness="0" 
+                                            <Button Content="阅读详情" Command="{Binding ListBoxClickCommand }" CommandParameter="false" BorderThickness="0" 
                                             Background="{Binding RelativeSource ={RelativeSource Mode=FindAncestor, AncestorLevel= 1,AncestorType=Grid}, Path=Background}"
                                             VerticalAlignment="Center">
                                                 <Button.Style>
@@ -238,6 +238,9 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             </ScrollViewer>
+            <local:WPatientDetailView Grid.Row="1" DataContext="{Binding Path=SelectedItem, ElementName=listbox1}"
+                                      Visibility="{Binding Path=Visibility, ElementName=scrollviewer1, Converter={StaticResource VIsibilityConverter} }"></local:WPatientDetailView>
+            <!--<local:WPatientDetailView Grid.Row="2" ></local:WPatientDetailView>-->
         </Grid>
     </Grid>
 </Window>

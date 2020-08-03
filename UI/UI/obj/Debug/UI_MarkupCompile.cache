@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\github\hospitalSystem\UI\UI\App.xaml
-2-158707457
+3-844178396
 
-182012163404
+19-1389816758
 17-1900516451
-MainWindow.xaml;ModelView\WPatientVistView.xaml;
+MainWindow.xaml;ModelView\WPatientDetailView.xaml;ModelView\WPatientVistView.xaml;
 
 False
 

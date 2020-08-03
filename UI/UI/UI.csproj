@@ -71,6 +71,9 @@
     </ApplicationDefinition>
     <Compile Include="Commons\CommonFunction.cs" />
     <Compile Include="Commons\ConverterCollection.cs" />
+    <Compile Include="ModelView\WPatientDetailView.xaml.cs">
+      <DependentUpon>WPatientDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ModelView\WPatientVistView.xaml.cs">
       <DependentUpon>WPatientVistView.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ModelView\WPatientDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ModelView\WPatientVistView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

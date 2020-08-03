@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using UI.Model;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace UI.ViewModel
 {
@@ -27,7 +28,7 @@ namespace UI.ViewModel
     /// <summary>
     ///  所有用户的访问列表
     /// </summary>
-    public class PatientVisitTreeViewModel : ObservableObject
+    public class PatientVisitTreeViewModel : ViewModelBase
     {
         private ObservableCollection<PatientVisitModel> _patientVisitList = new ObservableCollection<PatientVisitModel>();
         /// <summary>
@@ -38,6 +39,15 @@ namespace UI.ViewModel
             get { return _patientVisitList; }
             set { _patientVisitList = value; RaisePropertyChanged(() => PatientVisitList); }
         }
+
+
+        private bool _listboxVisible = true;
+        public bool ListBoxVisible
+        {
+            get { return _listboxVisible; }
+            set { _listboxVisible = value; RaisePropertyChanged(() => ListBoxVisible); }
+        }
+
 
         public PatientVisitTreeViewModel()
         {
@@ -70,5 +80,28 @@ namespace UI.ViewModel
             PatientVisitList.Add(patientVisitModel1);
 
         }
+
+        #region
+        private RelayCommand listBoxClickCommand;
+        /// <summary>
+        /// 双击事件
+        /// </summary>
+        public RelayCommand ListBoxClickCommand
+        {
+            get
+            {
+                if (listBoxClickCommand == null)
+                    listBoxClickCommand = new RelayCommand(() => SetListboxVisible());
+                return listBoxClickCommand;
+
+            }
+            set { listBoxClickCommand = value; }
+        }
+
+        private void SetListboxVisible()
+        {
+            //ListBoxVisible = o;
+        }
+        #endregion
     }
 }

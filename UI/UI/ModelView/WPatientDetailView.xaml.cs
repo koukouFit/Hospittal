@@ -21,11 +21,11 @@ namespace UI.ModelView
     /// </summary>
     public partial class WPatientDetailView : UserControl
     {
-        public WPatientDetailView(PatientRecord  patientRecord)
+        public WPatientDetailView()
         {
             InitializeComponent();
-            this.DataContext = patientRecord;
+            //this.DataContext = patientRecord;
         }
-        private PatientRecord _patienRecord = null;
+        //private PatientRecord _patienRecord = null;
     }
 }

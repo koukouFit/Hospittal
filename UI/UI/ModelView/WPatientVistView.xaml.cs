@@ -26,7 +26,8 @@ namespace UI.ModelView
 
         private void delbutton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("1");
+            //MessageBox.Show("1");
+
         }
     }
 }

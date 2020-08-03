@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "4918027",
+      "name": "等级-C",
+      "font_class": "dengji-C",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "4918028",
+      "name": "等级-B",
+      "font_class": "dengji-B",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "4918029",
+      "name": "等级-D",
+      "font_class": "dengji-D",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "4918030",
+      "name": "等级-A",
+      "font_class": "dengji-A",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
       "icon_id": "693138",
       "name": "删除",
       "font_class": "shanchu",

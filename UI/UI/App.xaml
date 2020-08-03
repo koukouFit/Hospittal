@@ -9,6 +9,7 @@
         <con:MessagePicConvert x:Key="messagepicconverter"></con:MessagePicConvert>
         <con:MessagePicConvert_Add x:Key="MessagePicConvert_Add"></con:MessagePicConvert_Add>
         <con:MedicineTypeConver x:Key="MedicineTypeConver"></con:MedicineTypeConver>
+        <con:VIsibilityConverter x:Key="VIsibilityConverter"></con:VIsibilityConverter>
     </Application.Resources>
     <!--ModelView\WPatientVistView.XAML  MainWindow.XAML-->
 </Application>
